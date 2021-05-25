@@ -1,0 +1,20 @@
+<?php
+
+namespace App\User;
+
+use Illuminate\Http\Request;
+use App\User\Queries\ListUserQuery;
+use App\User\Queries\FindProfileUserQuery;
+
+class UserService
+{
+    public static function listUser(Request $request)
+    {
+        return (new ListUserQuery())($request);
+    }
+
+    public static function findProfileUser(Request $request)
+    {
+        return (new FindProfileUserQuery())($request);
+    }
+}
