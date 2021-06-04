@@ -17,8 +17,10 @@ class CreateInterestsTable extends Migration
             $table->id()->autoIncrement();
             $table->string('name');
             $table->string('description');
+            $table->foreignId('user_id');
             $table->foreignId('origin_id');
             $table->foreignId('contact_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('origin_id')->references('id')->on('origins');
             $table->foreign('contact_id')->references('id')->on('contacts');
             $table->timestamps();

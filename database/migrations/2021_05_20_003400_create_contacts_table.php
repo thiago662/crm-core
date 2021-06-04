@@ -19,9 +19,7 @@ class CreateContactsTable extends Migration
             $table->string('cell');
             $table->string('email');
             $table->string('user_code');
-            $table->foreignId('user_id');
             $table->foreignId('account_id');
-            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('account_id')->references('id')->on('accounts');
             $table->timestamps();
             $table->softDeletes();

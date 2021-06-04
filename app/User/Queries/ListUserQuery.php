@@ -9,6 +9,14 @@ class ListUserQuery
 {
     public function __invoke(Request $request)
     {
-        return User::all();
+        $user = auth()->user();
+
+        // with(['posts' => function ($query) {
+        //     $query->where('title', 'like', '%code%');
+        // }])
+
+        return User::with(['interests', 'role', 'account'])->where('account_id', $user->account_id)
+            ->where('id', '<>', $user->id)
+            ->paginate($request->get('per_page', 15));
     }
 }

@@ -2,6 +2,10 @@
 
 namespace App\User;
 
+use App\Role\Role;
+use App\Account\Account;
+use App\Interest\Interest;
+use Illuminate\Support\Facades\App;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
@@ -23,6 +27,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'cell',
+        'status',
+        'role_id',
+        'account_id',
+        'created_at',
+        'updated_at',
+        'deleted_at',
     ];
 
     /**
@@ -43,4 +54,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function interests()
+    {
+        return $this->hasMany(Interest::class);
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    public function account()
+    {
+        return $this->belongsTo(Account::class);
+    }
 }
