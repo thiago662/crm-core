@@ -15,8 +15,19 @@ class ListUserQuery
         //     $query->where('title', 'like', '%code%');
         // }])
 
-        return User::with(['interests', 'role', 'account'])->where('account_id', $user->account_id)
-            ->where('id', '<>', $user->id)
+        return User::with([
+                'interests',
+                'role',
+                'account',
+            ])
+            ->where(function ($query) use ($request, $user) {
+                $query->where('account_id', $user->account_id)
+                    ->where('id', '<>', $user->id);
+
+                if ($request->get('role')) {
+                    $query->where('role_id', $request->role);
+                }
+            })
             ->paginate($request->get('per_page', 15));
     }
 }

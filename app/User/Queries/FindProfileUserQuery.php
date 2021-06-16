@@ -9,6 +9,13 @@ class FindProfileUserQuery
 {
     public function __invoke(Request $request)
     {
-        return $request->user();
+        // return $request->user();
+
+        return User::with([
+                'interests',
+                'role',
+                'account',
+            ])
+            ->findOrFail($request->user()->id);
     }
 }
