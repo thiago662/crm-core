@@ -15,22 +15,22 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        //
+        return UserService::createUser($request);
     }
 
-    public function show($id)
+    public function show(int $id)
     {
-        //
+        return UserService::FindUser($id);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, int $id)
     {
-        //
+        return UserService::updateUser($request, $id);
     }
 
-    public function destroy($id)
+    public function destroy(int $id)
     {
-        //
+        return UserService::deleteUser($id);
     }
 
     public function profile(Request $request)
