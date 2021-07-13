@@ -32,4 +32,9 @@ class SegmentController extends Controller
     {
         return SegmentService::deleteSegment($id);
     }
+
+    public function options($id)
+    {
+        return SegmentService::listOptionSegment($id);
+    }
 }

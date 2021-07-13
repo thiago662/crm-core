@@ -8,6 +8,7 @@ use App\Segment\Queries\FindSegmentQuery;
 use App\Segment\Commands\CreateSegmentCommand;
 use App\Segment\Commands\UpdateSegmentCommand;
 use App\Segment\Commands\DeleteSegmentCommand;
+use App\Segment\Queries\ListOptionSegmentQuery;
 
 class SegmentService
 {
@@ -34,5 +35,10 @@ class SegmentService
     public static function deleteSegment($id)
     {
         return (new DeleteSegmentCommand())($id);
+    }
+
+    public static function listOptionSegment()
+    {
+        return (new ListOptionSegmentQuery())();
     }
 }

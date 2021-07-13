@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
 use App\Role\RoleService;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class RoleController extends Controller
 {
@@ -31,5 +31,10 @@ class RoleController extends Controller
     public function destroy($id)
     {
         return RoleService::deleteRole($id);
+    }
+
+    public function options()
+    {
+        return RoleService::listOptionRole();
     }
 }
