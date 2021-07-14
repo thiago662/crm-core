@@ -2,6 +2,7 @@
 
 namespace App\Origin;
 
+use App\Origin\Queries\ListOptionOriginQuery;
 use Illuminate\Http\Request;
 
 class OriginService

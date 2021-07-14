@@ -2,6 +2,7 @@
 
 namespace App\UnrealizedSaleReason;
 
+use App\UnrealizedSaleReason\Queries\ListOptionUnrealizedSaleReasonQuery;
 use Illuminate\Http\Request;
 
 class UnrealizedSaleReasonService
