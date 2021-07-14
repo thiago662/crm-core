@@ -3,38 +3,38 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use App\Segment\SegmentService;
+use App\Origin\OriginService;
 use App\Http\Controllers\Controller;
 
-class SegmentController extends Controller
+class OriginController extends Controller
 {
     public function index(Request $request)
     {
-        return SegmentService::listSegment($request);
+        return OriginService::listOrigin($request);
     }
 
     public function store(Request $request)
     {
-        return SegmentService::createSegment($request);
+        return OriginService::createOrigin($request);
     }
 
     public function show($id)
     {
-        return SegmentService::findSegment($id);
+        return OriginService::findOrigin($id);
     }
 
     public function update(Request $request, $id)
     {
-        return SegmentService::updateSegment($request, $id);
+        return OriginService::updateOrigin($request, $id);
     }
 
     public function destroy($id)
     {
-        return SegmentService::deleteSegment($id);
+        return OriginService::deleteOrigin($id);
     }
 
     public function options()
     {
-        return SegmentService::listOptionSegment();
+        return OriginService::listOptionOrigin();
     }
 }

@@ -2,10 +2,12 @@
 
 namespace App\Segment\Queries;
 
+use App\Segment\Segment;
+
 class ListOptionSegmentQuery
 {
     public function __invoke()
     {
-        return [];
+        return Segment::where('status', 'true')->get();
     }
 }
