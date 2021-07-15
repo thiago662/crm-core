@@ -3,33 +3,33 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use App\Account\AccountService;
+use App\Contact\ContactService;
 use App\Http\Controllers\Controller;
 
-class AccountController extends Controller
+class ContactController extends Controller
 {
     public function index(Request $request)
     {
-        return AccountService::listAccount($request);
+        return ContactService::listContact($request);
     }
 
     public function store(Request $request)
     {
-        return AccountService::createAccount($request);
+        return ContactService::createContact($request);
     }
 
     public function show($id)
     {
-        return AccountService::findAccount($id);
+        return ContactService::findContact($id);
     }
 
     public function update(Request $request, $id)
     {
-        return AccountService::updateAccount($request, $id);
+        return ContactService::updateContact($request, $id);
     }
 
     public function destroy($id)
     {
-        return AccountService::deleteAccount($id);
+        return ContactService::deleteContact($id);
     }
 }

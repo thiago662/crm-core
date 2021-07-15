@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\OriginController;
+use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\SegmentController;
 use App\Http\Controllers\Api\UnrealizedSaleReasonController;
 
@@ -24,6 +25,8 @@ Route::group(['middleware' => ['guest:api']], function () {
 Route::group(['middleware' => ['auth:api']], function () {
     Route::get('/users/profile', [UserController::class, 'profile']);
     Route::apiResource('/users', UserController::class);
+
+    Route::apiResource('/contacts', ContactController::class);
 
     Route::get('/origins/options', [OriginController::class, 'options']);
     Route::apiResource('/origins', OriginController::class);
