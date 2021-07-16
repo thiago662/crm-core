@@ -2,9 +2,11 @@
 
 namespace App\Account;
 
+use App\User\User;
 use App\Origin\Origin;
 use App\Segment\Segment;
 use App\Contact\Contact;
+use App\Interest\Interest;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\UnrealizedSaleReason\UnrealizedSaleReason;
@@ -37,6 +39,11 @@ class Account extends Model
         return $this->hasMany(UnrealizedSaleReason::class);
     }
 
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
+
     public function origins()
     {
         return $this->hasMany(Origin::class);
@@ -45,5 +52,10 @@ class Account extends Model
     public function contacts()
     {
         return $this->hasMany(Contact::class);
+    }
+
+    public function interests()
+    {
+        return $this->hasMany(Interest::class);
     }
 }

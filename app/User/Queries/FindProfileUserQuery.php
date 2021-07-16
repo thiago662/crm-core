@@ -12,7 +12,7 @@ class FindProfileUserQuery
         // return $request->user();
 
         return User::with([
-                'interests',
+                // 'interests',
                 'role',
                 'account',
             ])

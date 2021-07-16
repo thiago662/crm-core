@@ -16,6 +16,22 @@ class CreateContactCommand
             'account_id' => $user->account_id
         ]);
 
-        Contact::create($request->toArray());
+        $contact = [
+            'name' => $request->get('name'),
+            'cell' => $request->get('cell'),
+            'email' => $request->get('email'),
+            'user_code' => $request->get('user_code'),
+            'account_id' => $request->get('account_id'),
+            'user_id' => $request->get('user_id'),
+            'origin_id' => $request->get('origin_id'),
+        ];
+
+        $followUp = [
+            'type' => $request->get('type'),
+            'user_id' => $request->get('user_id'),
+        ];
+
+        Contact::create($contact)
+            ->followUp($followUp);
     }
 }

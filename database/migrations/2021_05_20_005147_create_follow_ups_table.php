@@ -15,8 +15,11 @@ class CreateFollowUpsTable extends Migration
     {
         Schema::create('follow_ups', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->foreignId('interest_id');
-            $table->foreign('interest_id')->references('id')->on('interests');
+            $table->string('type');
+            $table->foreignId('user_id');
+            $table->foreignId('contact_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('contact_id')->references('id')->on('contacts');
             $table->timestamps();
             $table->softDeletes();
         });

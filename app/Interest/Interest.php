@@ -28,6 +28,6 @@ class Interest extends Model
 
     public function followUps()
     {
-        return $this->hasMany(FollowUp::class);
+        return $this->belongsToMany(FollowUp::class);
     }
 }

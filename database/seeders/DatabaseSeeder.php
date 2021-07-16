@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             OriginSeeder::class,
             UnrealizedSaleReasonSeeder::class,
+            InterestSeeder::class,
         ]);
     }
 }

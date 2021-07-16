@@ -5,7 +5,7 @@ namespace App\Contact;
 use App\User\User;
 use App\Origin\Origin;
 use App\Account\Account;
-use App\Models\FollowUp;
+use App\FollowUp\FollowUp;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -42,7 +42,7 @@ class Contact extends Model
         return $this->belongsTo(Origin::class);
     }
 
-    public function followUps()
+    public function followUp()
     {
         return $this->hasMany(FollowUp::class);
     }

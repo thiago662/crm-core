@@ -20,7 +20,11 @@ class CreateContactsTable extends Migration
             $table->string('email');
             $table->string('user_code');
             $table->foreignId('account_id');
+            $table->foreignId('user_id');
+            $table->foreignId('origin_id');
             $table->foreign('account_id')->references('id')->on('accounts');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('origin_id')->references('id')->on('origins');
             $table->timestamps();
             $table->softDeletes();
         });
