@@ -3,7 +3,7 @@
 namespace App\Origin;
 
 use App\Account\Account;
-use App\Interest\Interest;
+use App\Contact\Contact;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -21,13 +21,13 @@ class Origin extends Model
         'deleted_at',
     ];
 
-    public function interests()
-    {
-        return $this->hasMany(Interest::class);
-    }
-
     public function account()
     {
         return $this->belongsTo(Account::class);
+    }
+
+    public function contacts()
+    {
+        return $this->hasMany(Contact::class);
     }
 }

@@ -2,8 +2,10 @@
 
 namespace App\Contact;
 
+use App\User\User;
+use App\Origin\Origin;
 use App\Account\Account;
-use App\Interest\Interest;
+use App\Models\FollowUp;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -18,6 +20,8 @@ class Contact extends Model
         'email',
         'user_code',
         'account_id',
+        'user_id',
+        'origin_id',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -28,8 +32,18 @@ class Contact extends Model
         return $this->belongsTo(Account::class);
     }
 
-    public function interests()
+    public function user()
     {
-        return $this->hasMany(Interest::class);
+        return $this->belongsTo(User::class);
+    }
+
+    public function origin()
+    {
+        return $this->belongsTo(Origin::class);
+    }
+
+    public function followUps()
+    {
+        return $this->hasMany(FollowUp::class);
     }
 }

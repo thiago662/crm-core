@@ -2,9 +2,8 @@
 
 namespace App\Interest;
 
-use App\User\User;
-use App\Origin\Origin;
-use App\Contact\Contact;
+use App\Account\Account;
+use App\FollowUp\FollowUp;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,26 +15,19 @@ class Interest extends Model
     protected $fillable = [
         'name',
         'description',
-        'user_id',
-        'origin_id',
-        'contact_id',
+        'account_id',
         'created_at',
         'updated_at',
         'deleted_at',
     ];
 
-    public function user()
+    public function account()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Account::class);
     }
 
-    public function contact()
+    public function followUps()
     {
-        return $this->belongsTo(Contact::class);
-    }
-
-    public function origin()
-    {
-        return $this->belongsTo(Origin::class);
+        return $this->hasMany(FollowUp::class);
     }
 }
