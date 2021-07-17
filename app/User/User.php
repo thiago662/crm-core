@@ -4,6 +4,7 @@ namespace App\User;
 
 use App\Role\Role;
 use App\Account\Account;
+use App\Contact\Contact;
 use App\Interest\Interest;
 use Illuminate\Support\Facades\App;
 use Laravel\Passport\HasApiTokens;
@@ -55,11 +56,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function interests()
-    {
-        return $this->hasMany(Interest::class);
-    }
-
     public function role()
     {
         return $this->belongsTo(Role::class);
@@ -68,5 +64,10 @@ class User extends Authenticatable
     public function account()
     {
         return $this->belongsTo(Account::class);
+    }
+
+    public function contacts()
+    {
+        return $this->hasMany(Contact::class);
     }
 }

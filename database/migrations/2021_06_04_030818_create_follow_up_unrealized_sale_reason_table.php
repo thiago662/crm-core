@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUnrealizedSaleReasonFollowUpsTable extends Migration
+class CreateFollowUpUnrealizedSaleReasonTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateUnrealizedSaleReasonFollowUpsTable extends Migration
      */
     public function up()
     {
-        Schema::create('unrealized_sale_reason_follow_ups', function (Blueprint $table) {
+        Schema::create('follow_up_unrealized_sale_reason', function (Blueprint $table) {
             $table->foreignId('follow_up_id');
             $table->foreignId('unrealized_sale_reason_id');
             $table->foreign('follow_up_id')->references('id')->on('follow_ups');

@@ -42,7 +42,7 @@ class Contact extends Model
         return $this->belongsTo(Origin::class);
     }
 
-    public function followUp()
+    public function followUps()
     {
         return $this->hasMany(FollowUp::class);
     }

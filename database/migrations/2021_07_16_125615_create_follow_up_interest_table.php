@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInterestFollowUpsTable extends Migration
+class CreateFollowUpInterestTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateInterestFollowUpsTable extends Migration
      */
     public function up()
     {
-        Schema::create('interest_follow_ups', function (Blueprint $table) {
+        Schema::create('follow_up_interest', function (Blueprint $table) {
             $table->foreignId('follow_up_id');
             $table->foreignId('interest_id');
             $table->foreign('follow_up_id')->references('id')->on('follow_ups');
@@ -28,6 +28,6 @@ class CreateInterestFollowUpsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('interest_follow_ups');
+        Schema::dropIfExists('follow_up_interest');
     }
 }

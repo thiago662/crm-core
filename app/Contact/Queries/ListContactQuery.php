@@ -9,6 +9,11 @@ class ListContactQuery
 {
     public function __invoke(Request $request)
     {
-        return Contact::paginate();
+        return Contact::with([
+            'account',
+            'user',
+            'origin',
+            'followUps',
+        ])->paginate();
     }
 }
