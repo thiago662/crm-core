@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class CreateContactCommand
 {
+    /**
+     * Criar contato.
+     *
+     * @param Request $request
+     * @return void
+     */
     public function __invoke(Request $request)
     {
         $user = $request->user();
