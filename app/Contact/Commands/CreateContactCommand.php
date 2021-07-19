@@ -38,7 +38,7 @@ class CreateContactCommand
         ];
 
         Contact::create($contact)
-            ->followUp()
+            ->followUps()
             ->create($followUp)
             ->interests()
             ->sync($request->get('interest_id'));

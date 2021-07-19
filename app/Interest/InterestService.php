@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Role;
+namespace App\Interest;
 
 use Illuminate\Support\Facades\Facade;
 
-class RoleService extends Facade
+class InterestService extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'role';
+        return 'interest';
     }
 }

@@ -13,7 +13,9 @@ class ListContactQuery
             'account',
             'user',
             'origin',
-            'followUps',
+            'followUps' => function ($query) {
+                $query->with(['interests']);
+            },
         ])->paginate();
     }
 }

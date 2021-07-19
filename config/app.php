@@ -175,6 +175,14 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\ContactServiceProvider::class,
+        App\Providers\AccountServiceProvider::class,
+        App\Providers\FollowUpServiceProvider::class,
+        App\Providers\InterestServiceProvider::class,
+        App\Providers\OriginServiceProvider::class,
+        App\Providers\RoleServiceProvider::class,
+        App\Providers\SegmentServiceProvider::class,
+        App\Providers\UnrealizedSaleReasonServiceProvider::class,
+        App\Providers\UserServiceProvider::class,
 
     ],
 
@@ -229,6 +237,14 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'ContactService' => App\Contact\ContactService::class,
+        'AccountService' => App\Account\AccountService::class,
+        'FollowUpService' => App\FollowUp\FollowUpService::class,
+        'InterestService' => App\Interest\InterestService::class,
+        'OriginService' => App\Origin\OriginService::class,
+        'RoleService' => App\Role\RoleService::class,
+        'SegmentService' => App\Segment\SegmentService::class,
+        'UnrealizedSaleReasonService' => App\UnrealizedSaleReason\UnrealizedSaleReasonService::class,
+        'UserService' => App\User\UserService::class,
 
     ],
 

@@ -2,38 +2,12 @@
 
 namespace App\Origin;
 
-use App\Origin\Queries\ListOptionOriginQuery;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Facade;
 
-class OriginService
+class OriginService extends Facade
 {
-    public static function listOrigin(Request $request)
+    protected static function getFacadeAccessor()
     {
-        return (new ListOriginQuery())($request->all());
-    }
-
-    public static function createOrigin(Request $request)
-    {
-        return (new CreateOriginCommand())($request->all());
-    }
-
-    public static function findOrigin($id)
-    {
-        return (new FindOriginQuery())($id);
-    }
-
-    public static function updateOrigin(Request $request, $id)
-    {
-        return (new UpdateOriginCommand())($request->all(), $id);
-    }
-
-    public static function deleteOrigin($id)
-    {
-        return (new DeleteOriginCommand())($id);
-    }
-
-    public static function listOptionOrigin()
-    {
-        return (new ListOptionOriginQuery())();
+        return 'origin';
     }
 }

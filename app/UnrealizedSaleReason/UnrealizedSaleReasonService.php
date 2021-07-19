@@ -2,38 +2,12 @@
 
 namespace App\UnrealizedSaleReason;
 
-use App\UnrealizedSaleReason\Queries\ListOptionUnrealizedSaleReasonQuery;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Facade;
 
-class UnrealizedSaleReasonService
+class UnrealizedSaleReasonService extends Facade
 {
-    public static function listUnrealizedSaleReason(Request $request)
+    protected static function getFacadeAccessor()
     {
-        return (new ListUnrealizedSaleReasonQuery())($request);
-    }
-
-    public static function createUnrealizedSaleReason(Request $request)
-    {
-        return (new CreateUnrealizedSaleReasonCommand())($request);
-    }
-
-    public static function findUnrealizedSaleReason($id)
-    {
-        return (new FindUnrealizedSaleReasonQuery())($id);
-    }
-
-    public static function updateUnrealizedSaleReason(Request $request, $id)
-    {
-        return (new UpdateUnrealizedSaleReasonCommand())($request, $id);
-    }
-
-    public static function deleteUnrealizedSaleReason($id)
-    {
-        return (new DeleteUnrealizedSaleReasonCommand())($id);
-    }
-
-    public static function listOptionUnrealizedSaleReason()
-    {
-        return (new ListOptionUnrealizedSaleReasonQuery())();
+        return 'unrealizedsalereason';
     }
 }
