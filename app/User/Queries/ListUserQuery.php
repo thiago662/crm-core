@@ -16,7 +16,6 @@ class ListUserQuery
         // }])
 
         return User::with([
-                'interests',
                 'role',
                 'account',
             ])
