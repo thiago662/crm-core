@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\OriginController;
 use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\SegmentController;
+use App\Http\Controllers\Api\InterestController;
 use App\Http\Controllers\Api\UnrealizedSaleReasonController;
 
 /*
@@ -24,12 +25,16 @@ Route::group(['middleware' => ['guest:api']], function () {
 
 Route::group(['middleware' => ['auth:api']], function () {
     Route::get('/users/profile', [UserController::class, 'profile']);
+    Route::get('/users/options', [UserController::class, 'options']);
     Route::apiResource('/users', UserController::class);
 
     Route::apiResource('/contacts', ContactController::class);
 
     Route::get('/origins/options', [OriginController::class, 'options']);
     Route::apiResource('/origins', OriginController::class);
+
+    Route::get('/interests/options', [InterestController::class, 'options']);
+    Route::apiResource('/interests', InterestController::class);
 
     Route::get('/roles/options', [RoleController::class, 'options']);
     Route::apiResource('/roles', RoleController::class);

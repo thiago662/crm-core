@@ -5,6 +5,7 @@ namespace App\Contact;
 use Illuminate\Http\Request;
 use App\Contact\Queries\ListContactQuery;
 use App\Contact\Commands\CreateContactCommand;
+use App\Contact\Queries\FindContactQuery;
 
 class ContactManager
 {
@@ -25,7 +26,7 @@ class ContactManager
 
     public static function findContact($id)
     {
-        // return (new FindContactQuery())($id);
+        return (new FindContactQuery())($id);
     }
 
     public static function updateContact(Request $request, $id)

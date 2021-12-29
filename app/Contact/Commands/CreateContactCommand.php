@@ -3,6 +3,8 @@
 namespace App\Contact\Commands;
 
 use App\Contact\Contact;
+use App\FollowUp\Dictionaries\TypeDictionary;
+use App\User\Dictionaries\RoleDictionary;
 use Illuminate\Http\Request;
 
 class CreateContactCommand
@@ -17,9 +19,14 @@ class CreateContactCommand
     {
         $user = $request->user();
 
+        if ($user->role_id == RoleDictionary::ATTENDANT) {
+            $request->merge([
+                'user_id' => $user->id,
+            ]);
+        }
+
         $request->merge([
-            'user_id' => $user->id,
-            'account_id' => $user->account_id
+            'account_id' => $user->account_id,
         ]);
 
         $contact = [
@@ -33,8 +40,8 @@ class CreateContactCommand
         ];
 
         $followUp = [
-            'type' => $request->get('type'),
-            'user_id' => $request->get('user_id'),
+            'type' => TypeDictionary::CREATE,
+            'user_id' => $user->id,
         ];
 
         Contact::create($contact)

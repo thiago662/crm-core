@@ -8,6 +8,7 @@ use App\User\Queries\FindUserQuery;
 use App\User\Commands\CreateUserCommand;
 use App\User\Commands\DeleteUserCommand;
 use App\User\Commands\UpdateUserCommand;
+use App\User\Queries\ListOptionUserQuery;
 use App\User\Queries\FindProfileUserQuery;
 
 class UserManager
@@ -35,6 +36,11 @@ class UserManager
     public static function deleteUser(int $id)
     {
         return (new DeleteUserCommand())($id);
+    }
+
+    public static function listOptionUser()
+    {
+        return (new ListOptionUserQuery())();
     }
 
     public static function findProfileUser(Request $request)

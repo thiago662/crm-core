@@ -16,7 +16,7 @@ class CreateInterestsTable extends Migration
         Schema::create('interests', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->string('name');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->foreignId('account_id');
             $table->foreign('account_id')->references('id')->on('accounts');
             $table->timestamps();

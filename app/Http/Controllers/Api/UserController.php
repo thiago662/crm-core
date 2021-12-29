@@ -33,6 +33,11 @@ class UserController extends Controller
         return UserService::deleteUser($id);
     }
 
+    public function options()
+    {
+        return UserService::listOptionUser();
+    }
+
     public function profile(Request $request)
     {
         return UserService::findProfileUser($request);
